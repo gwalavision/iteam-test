@@ -1,0 +1,14 @@
+.playfield {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 600px;
+
+  /* border: 12px solid #a855c1; */
+  border-radius: 5%;
+}
+
+.playfield button:nth-child(3n) {
+  border-right: 5px;
+}

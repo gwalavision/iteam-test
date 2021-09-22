@@ -100,7 +100,6 @@ export default function App() {
     makeFirstMove();
   };
 
-  console.log(winArray);
   return (
     <>
       {modalIsOpen ? (

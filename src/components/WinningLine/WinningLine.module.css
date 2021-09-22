@@ -1,9 +1,7 @@
 .line {
   position: absolute;
-  /* top: 15%; */
-  /* transform: rotate(45deg); */
 
   width: 550px;
-  height: 5px;
+  height: 10px;
   background: red;
 }

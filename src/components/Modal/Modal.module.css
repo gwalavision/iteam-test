@@ -16,12 +16,36 @@
   max-width: 600px;
   width: 100%;
   padding: 15px;
-  background-color: #fff;
+  background-color: #545f7d;
 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.header {
+  font: inherit;
+  font-size: 48px;
+  color: #c4c4c4;
+  text-transform: uppercase;
+}
+
+.input {
+  background: #c4c4c4;
+}
+
+.input:focus {
+  outline: none;
+  outline: 1px solid #ffacac;
+}
+
+.input::placeholder {
+  font: inherit;
+  color: #545f7d;
+}
+.input:not(:last-child) {
+  margin-right: 20px;
 }
 
 .button {

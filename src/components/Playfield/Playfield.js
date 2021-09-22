@@ -1,7 +1,8 @@
 import Cell from "../Cell";
+import WinningLine from "../WinningLine";
 import styles from "./Playfield.module.css";
 
-export default function Playfield({ onClick, cellValue }) {
+export default function Playfield({ onClick, cellValue, winArray }) {
   return (
     <div className={styles.playfield}>
       <Cell value={0} onClick={onClick} cellValue={cellValue} />
@@ -13,6 +14,7 @@ export default function Playfield({ onClick, cellValue }) {
       <Cell value={6} onClick={onClick} cellValue={cellValue} />
       <Cell value={7} onClick={onClick} cellValue={cellValue} />
       <Cell value={8} onClick={onClick} cellValue={cellValue} />
+      {winArray && <WinningLine winArray={winArray} />}
     </div>
   );
 }

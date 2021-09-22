@@ -1,14 +1,14 @@
+import styles from "./WinnerMessage.module.css";
+import Button from "../Button";
 export default function WinnerMessage({ winner, onClick }) {
   return (
-    <div>
+    <div className={styles.container}>
       {winner ? (
-        <strong>The winner is {winner}!</strong>
+        <strong className={styles.info}>The winner is {winner}!</strong>
       ) : (
-        <strong>It's a draw!</strong>
+        <strong className={styles.info}>It's a draw!</strong>
       )}
-      <button type="button" onClick={onClick}>
-        Restart
-      </button>
+      <Button onClick={onClick}>Restart</Button>
     </div>
   );
 }

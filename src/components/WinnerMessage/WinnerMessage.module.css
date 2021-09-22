@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.info {
+  display: block;
+  font-size: 40px;
+  color: #c4c4c4;
+
+  margin-bottom: 10px;
+}

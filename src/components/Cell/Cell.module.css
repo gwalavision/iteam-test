@@ -1,16 +1,28 @@
+.container:nth-child(3n),
+.container:nth-child(3n + 2) {
+  border-left: 15px solid #a855c1;
+}
+
+.container:nth-child(-n + 6) {
+  border-bottom: 15px solid #a855c1;
+}
+
 .cell {
-  font-size: 14em;
+  font-size: 12em;
   color: #c4c4c4;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: calc(100% / 3);
+  width: 200px;
   height: 200px;
-
   background-color: #44425e;
 
   border: none;
   cursor: pointer;
+}
+
+.winning {
+  background-color: lightgreen;
 }

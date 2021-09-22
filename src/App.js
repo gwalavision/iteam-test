@@ -20,6 +20,7 @@ export default function App() {
   const [winner, setWinner] = useState("");
   const [movesCount, setMovesCount] = useState(0);
   const [cellValue, setCellValue] = useState(Array(9).fill(""));
+  const [winArray, setWinArray] = useState("");
 
   const changeCell = (value, figure) => {
     const result = clickedCells.map((e) => {
@@ -33,12 +34,14 @@ export default function App() {
   };
 
   const defineWinner = () => {
-    clickedCells.forEach((e) => {
+    clickedCells.forEach((e, i) => {
       if (e.join("") === "XXX") {
+        setWinArray(WINNING_LINES[i]);
         setScoreX(scoreX + 1);
         setWinner(nameX);
         return;
       } else if (e.join("") === "OOO") {
+        setWinArray(WINNING_LINES[i]);
         setScoreO(scoreO + 1);
         setWinner(nameO);
       }
@@ -80,18 +83,24 @@ export default function App() {
   };
 
   const onCloseModal = () => {
+    if (nameX === "" || nameO === "") {
+      alert("Please enter your names");
+      return;
+    }
     makeFirstMove();
     toggleModal();
   };
 
   const restartTheGame = (e) => {
     setClickedCells(JSON.parse(JSON.stringify(WINNING_LINES)));
+    setWinArray("");
     setMovesCount(0);
     setWinner("");
     setCellValue(Array(9).fill(""));
     makeFirstMove();
   };
 
+  console.log(winArray);
   return (
     <>
       {modalIsOpen ? (
@@ -99,12 +108,17 @@ export default function App() {
       ) : (
         <div>
           <div className={styles.container}>
-            <Playfield onClick={clickOnCell} cellValue={cellValue} />
+            <Playfield
+              onClick={clickOnCell}
+              cellValue={cellValue}
+              winArray={winArray}
+            />
             <Scoreboard
               nameX={nameX}
               nameO={nameO}
               scoreX={scoreX}
               scoreO={scoreO}
+              nextMove={playerMove}
             />
           </div>
           {(winner || movesCount === 9) && (
